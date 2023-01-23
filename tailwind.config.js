@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      poppins: [ 'Poppins', 'sans-serif'],
+      ubuntu: ['Ubuntu', 'sans-serif']
+    }
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
