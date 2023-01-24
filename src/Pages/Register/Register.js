@@ -29,7 +29,6 @@ const navigate = useNavigate();
 const handleCreateUser = (event) => {
 
     event.preventDefault();
-    setLoading(true);
     const form = event.target;
     const name = form.name.value;
     const email = form.email.value;
@@ -37,25 +36,26 @@ const handleCreateUser = (event) => {
     const confirm = form.confirmPass.value;
 
     if (!/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-      setError("Please Provide a Valid Email");
+     return  setError("Please Provide a Valid Email");
     }
 
     if (password.length < 6) {
-      setError("Password Must Be 6 Character or More");
-      return;
-    }
+      return setError("Password Must Be 6 Character or More");
+    
+    }l
 
     if (confirm !== password) {
-      setError("Your Password Did Not Match");
-      return;
+      return setError("Your Password Did Not Match");
+    
     }
-
+    setLoading(true);
     createUser(email, password)
     .then((result) => {
       const user = result.user;
       console.log(user);
       setError("");
       setLoading(false);
+      navigate('/')
       toast.success("Sign Up Successful", {
         position: "top-center",
         autoClose: 1000,
@@ -68,7 +68,7 @@ const handleCreateUser = (event) => {
       });
       
       handleUpdateUserProfile(name);
-      navigate('/')
+      setLoading(false);
     })
    .catch(err => {
     setLoading(false);
