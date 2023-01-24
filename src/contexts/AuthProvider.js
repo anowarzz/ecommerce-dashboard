@@ -26,7 +26,7 @@ const AuthProvider = ({ children }) => {
   };
 
   // Login A User
-  const signIn = (email, password) => {
+  const logIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
   };
@@ -52,7 +52,7 @@ const AuthProvider = ({ children }) => {
 // User State Checking with on auth state change
 useEffect( () => {
     const unSubscribe = onAuthStateChanged(auth, currentUser => {
-console.log('Observing current user', currentUser);
+// console.log('Observing current user', currentUser);
 setUser(currentUser)
 setLoading(false)
     })
@@ -65,7 +65,7 @@ setLoading(false)
 
 
 // Sending context value to all web page
-  const authInfo = { user, setUser, loading, setLoading, createUser, signIn ,googleLogIn, updateUser, logOut
+  const authInfo = { user, setUser, loading, setLoading, createUser, logIn ,googleLogIn, updateUser, logOut
   };
 
   return (

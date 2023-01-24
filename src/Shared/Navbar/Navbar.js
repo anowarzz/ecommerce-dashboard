@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import logo from '../../assets/dashbaord.jpg'
+import { toast } from "react-toastify";
 
 
 
@@ -14,7 +15,18 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     logOut()
-      .then(() => {})
+      .then(() => {
+        toast.success("Lout Successful", {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+      })
       .catch((err) => console.log(err));
   };
 
@@ -43,23 +55,10 @@ const Navbar = () => {
             >
               Dashboard
             </NavLink>
-          </li>
-          {user?.photoURL && (
-            <>
-              <img
-                alt=""
-                style={{ height: "50px", width: "50px" }}
-                className="rounded-full mb-4 md:mb-0"
-                src={user?.photoURL}
-                title={user?.displayName}
-              />
-            </>
-          )}
-
-          <li>
+     
             <button
               onClick={handleLogOut}
-              className="btn-sm mt-2 items-center text-white py-0 bg-Red ml-2 hover:bg-info"
+              className="btn-sm mt-2 items-center text-black py-0 bg-myYellow ml-2 hover:bg-info"
             >
               Log Out
             </button>

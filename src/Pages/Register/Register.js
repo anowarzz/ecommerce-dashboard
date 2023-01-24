@@ -15,7 +15,7 @@ const Register = () => {
 
   // context and states 
 const {createUser,updateUserProfile,
-googleLogin,setUser,loading,setLoading,} = useContext(AuthContext);
+googleLogIn,setUser,loading,setLoading,} = useContext(AuthContext);
 
 
 // Error State
@@ -23,8 +23,7 @@ const [error, setError] = useState("");
 
  // location
 const navigate = useNavigate();
-const location = useLocation();
-const from = location.state?.from?.pathname || "/";
+
 
 
 const handleCreateUser = (event) => {
@@ -69,8 +68,16 @@ const handleCreateUser = (event) => {
       });
       
       handleUpdateUserProfile(name);
-      navigate(from, { replace: true });
-    });
+      navigate('/')
+    })
+   .catch(err => {
+    setLoading(false);
+    console.log(err);
+    setLoading(false);
+    
+   })
+        
+
 
     const handleUpdateUserProfile = (name) => {
       const profile = {displayName: name};
@@ -88,7 +95,7 @@ const handleCreateUser = (event) => {
   // Login With google
   const handleGoogleLogin = () => {
     setLoading(true)
-    googleLogin(googleProvider)
+    googleLogIn(googleProvider)
       .then((result) => {
         const user = result.user;
         setUser(user);
@@ -96,7 +103,7 @@ const handleCreateUser = (event) => {
 
         setError("");
         setLoading(false);
-        navigate(from, { replace: true });
+        navigate('/')
         toast.success("Sign Up Successful", {
           position: "top-center",
           autoClose: 1000,
@@ -133,14 +140,14 @@ const handleCreateUser = (event) => {
 <div className='flex justify-around bg-purple-900 px-0 py-4'>
 <NavLink to='/register' 
    className={({ isActive }) =>
-   isActive ? "font-medium text-xl md:text-2xl tracking-wide transition-colors duration-200 text-sky-400  ease-linear transform border-2 px-2 py-1 bg-gray-900 border-pink-600" : "font-medium text-xl md:text-2xl tracking-wide text-white border-transparent  transition-colors duration-200 hover:text-sky-400 ease-linear transform border-4 hover:border-pink-600"
+   isActive ? "font-medium text-xl md:text-2xl tracking-wide transition-colors duration-200 text-sky-400  ease-linear transform border-2 px-2 py-1 bg-gray-900 border-pink-600" : "font-medium text-xl md:text-2xl tracking-wide text-white border-transparent  transition-colors duration-200 hover:text-sky-400 ease-linear transform border-4"
  }
  >
        Register
           </NavLink>
 
           <NavLink to="/login" className={({ isActive }) =>
-   isActive ? "font-medium text-xl md:text-2xl tracking-wide transition-colors duration-200 text-sky-400  ease-linear transform border-2 px-2 py-1 bg-gray-900 border-pink-600" : "font-medium text-xl md:text-2xl tracking-wide text-white border-transparent transition-colors duration-200 hover:text-sky-400 ease-linear transform border-4 hover:border-pink-600"
+   isActive ? "font-medium text-xl md:text-2xl tracking-wide transition-colors duration-200 text-sky-400  ease-linear transform border-2 px-2 py-1 bg-gray-900 border-pink-600" : "font-medium text-xl md:text-2xl tracking-wide text-white border-transparent transition-colors duration-200 hover:text-sky-400 ease-linear transform border-4 "
  }
           >
             Login
