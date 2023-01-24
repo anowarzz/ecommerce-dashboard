@@ -4,7 +4,13 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        myPink: "#FB2576",
+        myYellow: "#facc15"
+    
+      },
+    },
     fontFamily: {
       poppins: [ 'Poppins', 'sans-serif'],
       ubuntu: ['Ubuntu', 'sans-serif']

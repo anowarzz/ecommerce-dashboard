@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-import logo from '../../assets/cart.logo.png'
+import logo from '../../assets/dashbaord.jpg'
 
 
 
@@ -24,8 +24,8 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "text-primary font-bold navbarMenu" : "text-gray-800 font-semibold"
-          }
+          isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+        }
         >
           Home
         </NavLink>
@@ -38,10 +38,8 @@ const Navbar = () => {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-                isActive
-                  ? "text-primary font-bold"
-                  : "text-gray-800 font-semibold"
-              }
+              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+            }
             >
               Dashboard
             </NavLink>
@@ -73,12 +71,20 @@ const Navbar = () => {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-                isActive
-                  ? "text-primary font-bold"
-                  : "text-gray-800 font-semibold"
-              }
+              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+            }
             >
               Login
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/register"
+              className={({ isActive }) =>
+              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+            }
+            >
+              Register
             </NavLink>
           </li>
         </>
@@ -90,7 +96,7 @@ const Navbar = () => {
     <div className="navbar  py-6 px-4 bg-gray-900 flex justify-between dark:text-white">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn bg-gray-400 lg:hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -108,7 +114,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-gray-600 rounded-box w-52"
           >
             {menuItems}
           </ul>
@@ -117,25 +123,25 @@ const Navbar = () => {
           to="/"
           className="btn btn-ghost hover:bg-transparent  normal-case text-xl md:text-2xl"
         > 
-        <img src={logo} className="w-16" alt="" />
+        <img src={logo} className="w-12 md:w-16" alt="" />
           <p className="mx-1 pl-3 md:mx-3 text-blue-400">
-            <span className="hover:text-yellow-500">E</span>
-            <span className="hover:text-yellow-500">c</span>
-            <span className="hover:text-yellow-500">o</span>
-            <span className="hover:text-yellow-500">m</span>
-            <span className="hover:text-yellow-500">m</span>
-            <span className="hover:text-yellow-500">e</span>
-            <span className="hover:text-yellow-500">r</span>
-            <span className="hover:text-yellow-500">c</span>
-            <span className="hover:text-yellow-500">e</span> <span className="hover:text-yellow-500">D</span>
-            <span className="hover:text-yellow-500">a</span>
-            <span className="hover:text-yellow-500">s</span>
-            <span className="hover:text-yellow-500">h</span>
-            <span className="hover:text-yellow-500">B</span>
-            <span className="hover:text-yellow-500">o</span>
-            <span className="hover:text-yellow-500">a</span>
-            <span className="hover:text-yellow-500">r</span>
-            <span className="hover:text-yellow-500">d</span>
+            <span className="hover:text-blue-500 text-myPink">E</span>
+            <span className="hover:text-blue-500  text-myPink">c</span>
+            <span className="hover:text-blue-500  text-myPink">o</span>
+            <span className="hover:text-blue-500  text-myPink">m</span>
+            <span className="hover:text-blue-500  text-myPink">m</span>
+            <span className="hover:text-blue-500  text-myPink">e</span>
+            <span className="hover:text-blue-500  text-myPink">r</span>
+            <span className="hover:text-blue-500  text-myPink">c</span>
+            <span className="hover:text-blue-500  text-myPink">e</span> <span className="hover:text-myPink ">D</span>
+            <span className="hover:text-myPink">a</span>
+            <span className="hover:text-myPink">s</span>
+            <span className="hover:text-myPink">h</span>
+            <span className="hover:text-myPink">B</span>
+            <span className="hover:text-myPink">o</span>
+            <span className="hover:text-myPink">a</span>
+            <span className="hover:text-myPink">r</span>
+            <span className="hover:text-myPink">d</span>
           </p>
         </Link>
       </div>
