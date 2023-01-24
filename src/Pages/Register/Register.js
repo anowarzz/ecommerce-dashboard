@@ -42,7 +42,7 @@ const handleCreateUser = (event) => {
     if (password.length < 6) {
       return setError("Password Must Be 6 Character or More");
     
-    }l
+    }
 
     if (confirm !== password) {
       return setError("Your Password Did Not Match");
