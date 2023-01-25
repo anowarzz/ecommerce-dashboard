@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { ScaleLoader } from 'react-spinners';
 import swal from 'sweetalert';
 import { AuthContext } from '../../contexts/AuthProvider';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
@@ -38,28 +39,37 @@ swal("Yaa!", "Product Added to Cart!", "success");
 setModalProduct(null)
 
 if(!data.acknowledged){
-  swal("Opss", "This Product Is Already In Your Cart", "warning");
+  swal("Opss", `${product?.title} Is Already In Your Cart`, "warning");
   setModalProduct(null)
 }
 
 })
 
-
 }
 
 
+ 
 
 
     return (
-        <div>
+        <div className='border'>
+
+
+
 <input type="checkbox" id="dynamicModal" className="modal-toggle" />
 
+<div className="modal modal-bottom sm:modal-middle border">
+  <div className="modal-box ">
+
 {
-  loading && <LoadingSpinner />
+  loading && <div className='mt-8'> 
+<p className='text-center'>Loading...</p>
+<ScaleLoader color="blue" size={100} className="text-center"/>
+
+  </div>
 }
 
-<div className="modal modal-bottom sm:modal-middle">
-  <div className="modal-box ">
+
 <img src={product?.image} alt="" className='h-48 mx-auto' />
 
     <h3 className="font-bold text-lg mt-2">{product?.title}</h3>

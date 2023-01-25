@@ -101,7 +101,7 @@ googleLogIn(googleProvider)
 
 {loading && (
     <div className="z-20 absolute top-40 left-[50%] ">
-      <ScaleLoader color="blue" size={100} className="text-center" />
+      <ScaleLoader color="yellow" size={100} className="text-center" />
     </div>
   )}
 
