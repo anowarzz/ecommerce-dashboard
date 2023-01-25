@@ -1,9 +1,12 @@
-const { createBrowserRouter } = require("react-router-dom");
-const { default: Main } = require("../layouts/Main");
-const { default: ErrorPage } = require("../Pages/ErrorPage/ErrorPage");
-const { default: Home } = require("../Pages/Home/Home");
-const { default: Login } = require("../Pages/Login/Login");
-const { default: Register } = require("../Pages/Register/Register");
+import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../layouts/DashboardLayout";
+import AllCustomers from "../Pages/Dashboard/AllCustomers/AllCustomers";
+import Main from '../layouts/Main' ;
+import ErrorPage from '../Pages/ErrorPage/ErrorPage' ;
+import Home from '../Pages/Home/Home' ;
+import Login from '../Pages/Login/Login' ;
+import Register from '../Pages/Register/Register' ;
+import AllProducts from "../Pages/Dashboard/AllProducts.js/AllProducts";
 
 const router = createBrowserRouter([
 
@@ -14,7 +17,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+               element: <Home />
             },
             {
                 path: 'login',
@@ -22,10 +25,25 @@ const router = createBrowserRouter([
             },
             {
                 path: '/register',
-                element: <Register />
+                element: <Register />,
+            },
+    
+        ]
+    },
+    {
+     path:'/dashboard',
+     element: <DashboardLayout />,
+     children: [
+         {
+             path: '/dashboard/customers',
+             element: <AllCustomers />
+            },
+            {
+                path: '/dashboard/products',
+                element: <AllProducts />
             }
         ]
-    }
+    },
 ])
 
 

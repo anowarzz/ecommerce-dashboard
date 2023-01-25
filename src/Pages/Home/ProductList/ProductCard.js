@@ -18,9 +18,12 @@ console.log(product);
       <div className="badge badge-warning text-lg">${product?.price}</div> 
       <div className="badge badge-outline">⭐{product?.rating?.rate}</div>
     </div>
-    <div>
-        <button className='py-1 btn btn-info hover:btn-primary'>
+    <div className='flex justify-between mt-2'>
+        <button className='py-1 btn btn-info btn-sm hover:btn-primary'>
             Details
+        </button>
+        <button className='py-1 btn btn-sm btn-success hover:btn-secondary'>
+            Add to Cart
         </button>
     </div>
   </div>

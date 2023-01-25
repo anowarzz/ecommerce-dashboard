@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { ScaleLoader } from 'react-spinners';
-import { useToast } from 'react-toastify';
+
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import useFetch from '../../../Hooks/useFetch';
 import ProductCard from './ProductCard';

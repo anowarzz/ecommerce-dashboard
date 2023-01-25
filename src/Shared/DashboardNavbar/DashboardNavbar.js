@@ -8,7 +8,7 @@ import { toast } from "react-toastify";
 
 
 
-const Navbar = () => {
+const DashboardNavbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
 
@@ -47,14 +47,6 @@ const Navbar = () => {
       {user?.uid ? (
         <>
           <li>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            }
-            >
-             Cart
-            </NavLink>
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
@@ -131,7 +123,7 @@ const Navbar = () => {
           className="btn btn-ghost hover:bg-transparent  normal-case text-xl md:text-2xl"
         > 
         {/* <img src={logo} className="w-12 md:w-16" alt="" /> */}
-          <p className="mx-1 pl-3 md:mx-3 text-blue-400">
+          <p className="mx-1 text-sm md:text-base pl-3 md:mx-3 text-blue-400">
             <span className="hover:text-blue-500 text-myPink">E</span>
             <span className="hover:text-blue-500  text-myPink">c</span>
             <span className="hover:text-blue-500  text-myPink">o</span>
@@ -155,8 +147,28 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
       </div>
+      <label
+        htmlFor="dashboardDrawer"
+        tabIndex={2}
+        className="btn bg-info lg:hidden"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-5 w-5"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M4 6h16M4 12h8m-8 6h16"
+          />
+        </svg>
+      </label>
     </div>
   );
 };
 
-export default Navbar;
+export default DashboardNavbar;
