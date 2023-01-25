@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
-// import logo from '../../assets/dashbaord.jpg'
 import { toast } from "react-toastify";
 
 
@@ -122,8 +121,8 @@ const DashboardNavbar = () => {
           to="/"
           className="btn btn-ghost hover:bg-transparent  normal-case text-xl md:text-2xl"
         > 
-        {/* <img src={logo} className="w-12 md:w-16" alt="" /> */}
-          <p className="mx-1 text-sm md:text-base pl-3 md:mx-3 text-blue-400">
+  
+          <p className="mx-1  pl-3 md:mx-3 text-blue-400">
             <span className="hover:text-blue-500 text-myPink">E</span>
             <span className="hover:text-blue-500  text-myPink">c</span>
             <span className="hover:text-blue-500  text-myPink">o</span>

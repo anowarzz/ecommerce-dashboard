@@ -7,6 +7,9 @@ import Home from '../Pages/Home/Home' ;
 import Login from '../Pages/Login/Login' ;
 import Register from '../Pages/Register/Register' ;
 import AllProducts from "../Pages/Dashboard/AllProducts.js/AllProducts";
+import Cart from "../Pages/Cart/Cart";
+import DynamicModal from "../components/DynamicModal/DynamicModal";
+import ProductDetails from "../Pages/Home/ProductList/ProductDetails/ProductDetails";
 
 const router = createBrowserRouter([
 
@@ -27,6 +30,15 @@ const router = createBrowserRouter([
                 path: '/register',
                 element: <Register />,
             },
+            {
+               path: '/cart',
+               element: <Cart />
+            },
+            {
+                path: '/products/:id',
+                element: <ProductDetails />,
+                loader: ({params}) => fetch(`https://ecommerce-dashboard-server.vercel.app/products/${params.id}`)
+            }
     
         ]
     },

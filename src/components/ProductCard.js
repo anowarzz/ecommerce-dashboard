@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import DynamicModal from './DynamicModal/DynamicModal';
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, refetch}) => {
 
 console.log(product);
+
+const [showModal, setShowModal] = useState(false)
+
+
+const handleModal = () => {
+setShowModal(true)
+
+}
 
 
     return (
@@ -18,16 +28,16 @@ console.log(product);
       <div className="badge badge-warning text-lg">${product?.price}</div> 
       <div className="badge badge-outline">⭐{product?.rating?.rate}</div>
     </div>
-    <div className='flex justify-between mt-2'>
-        <button className='py-1 btn btn-info btn-sm hover:btn-primary'>
-            Details
-        </button>
-        <button className='py-1 btn btn-sm btn-success hover:btn-secondary'>
-            Add to Cart
-        </button>
-    </div>
+
+  <Link to={`/products/${product._id}`}>
+        <label className='py-1 btn btn-sm btn-success hover:btn-secondary' htmlFor="dynamicModal" onClick={handleModal}>Add to Cart</label>
+  </Link>
+
   </div>
 </div>
+
+<DynamicModal product = {product} />
+
         </div>
     );
 };

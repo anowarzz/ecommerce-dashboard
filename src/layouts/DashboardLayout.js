@@ -26,11 +26,11 @@ const DashboardLayout = () => {
         
        
               <li className="border-gray-100 bg-gray-800 shadow-xl text-gray-50 mb-1 hover:bg-sky-500">
-                    <Link to="/dashboard/addProducts">Add Products</Link>
+                    <Link to="/dashboard/products">All Products</Link>
                   </li>
   
                   <li className="border-gray-100 bg-gray-800 shadow-xl text-gray-50 mb-1 hover:bg-sky-500">
-                    <Link to="/dashboard/myProducts">My Products</Link>
+                    <Link to="/dashboard/customers">All Customers</Link>
                   </li>
 
         
