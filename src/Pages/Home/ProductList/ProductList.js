@@ -30,7 +30,7 @@ if(loading){
 
 
     {
-  modalProduct && <DynamicModal product = {modalProduct} />
+  modalProduct && <DynamicModal product = {modalProduct} setModalProduct = {setModalProduct} />
 }
         </div>
     );

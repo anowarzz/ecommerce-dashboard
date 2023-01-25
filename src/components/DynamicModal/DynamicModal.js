@@ -1,17 +1,63 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import swal from 'sweetalert';
+import { AuthContext } from '../../contexts/AuthProvider';
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
-const DynamicModal = ({product}) => {
+const DynamicModal = ({product, setModalProduct}) => {
+
+const {user} = useContext(AuthContext)
+
+const [loading, setLoading] = useState(false)
+
+const handleAddToCart = () => {
+
+setLoading(true)
+const cartProduct = {
+  title: product?.title,
+  image: product?.image,
+  price: product?.price,
+  rating: product?.rating?.rate,
+  id: product?._id,
+  email: user?.email,
+}
+
+
+fetch('https://ecommerce-dashboard-server.vercel.app/cartProducts', {
+  method: "POST",
+  headers: {
+    "content-type": "application/json"
+  },
+  body: JSON.stringify(cartProduct) 
+})
+.then(res => res.json())
+.then((data) => {
+console.log(data);
+setLoading(false)
+if(data.acknowledged)
+swal("Yaa!", "Product Added to Cart!", "success");
+setModalProduct(null)
+
+if(!data.acknowledged){
+  swal("Opss", "This Product Is Already In Your Cart", "warning");
+  setModalProduct(null)
+}
+
+})
+
+
+}
+
+
 
 
     return (
         <div>
-            {/* The button to open modal */}
-{/* <label htmlFor="dynamicModal" className="btn">open modal</label> */}
-
-
-
-{/* Put this part before </body> tag */}
 <input type="checkbox" id="dynamicModal" className="modal-toggle" />
+
+{
+  loading && <LoadingSpinner />
+}
+
 <div className="modal modal-bottom sm:modal-middle">
   <div className="modal-box ">
 <img src={product?.image} alt="" className='h-48 mx-auto' />
@@ -26,8 +72,18 @@ const DynamicModal = ({product}) => {
     <div className="modal-action flex justify-between">
 
       
+  { user?.uid ?       <button className='btn btn-md  btn-info w-4/5 hover:btn-secondary'
+      onClick={handleAddToCart}
+      >Add To Cart</button> :      
+       <button className='btn bg-gray-200  w-4/5 hover:btn-secondary font-bold' disabled
+      onClick={handleAddToCart}
+      >Please Login Buy Product</button>
 
-      <button className='btn btn-info w-4/5 hover:btn-secondary'>Add To Cart</button>
+  }
+
+
+
+
       <label htmlFor="dynamicModal" className="btn">Back</label>
     </div>
   </div>

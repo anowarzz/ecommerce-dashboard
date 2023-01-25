@@ -26,7 +26,7 @@ console.log(product);
     </div>
     {/* to={`/products/${product._id}`} */}
 
-        <label className='py-1 btn btn-sm btn-success hover:btn-secondary mt-2' htmlFor="dynamicModal" onClick={() => setModalProduct(product)}>Add to Cart</label>
+        <label className='py-1 btn btn-md btn-success hover:btn-secondary mt-2' htmlFor="dynamicModal" onClick={() => setModalProduct(product)}>Add to Cart</label>
 
 
   </div>
