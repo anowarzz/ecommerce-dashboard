@@ -12,14 +12,23 @@ const DynamicModal = ({product}) => {
 
 {/* Put this part before </body> tag */}
 <input type="checkbox" id="dynamicModal" className="modal-toggle" />
-<div className="w-full modal modal-bottom sm:modal-middle">
-  <div className="modal-box">
+<div className="modal modal-bottom sm:modal-middle">
+  <div className="modal-box ">
 <img src={product?.image} alt="" className='h-48 mx-auto' />
 
-    <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-    <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
-    <div className="modal-action">
-      <label htmlFor="dynamicModal" className="btn">Yay!</label>
+    <h3 className="font-bold text-lg mt-2">{product?.title}</h3>
+    <p className="py-4">{product?.description}</p>
+
+    <div>
+      <div className="badge badge-warning text-lg mr-2">${product?.price}</div> 
+      <div className="badge badge-outline">⭐{product?.rating?.rate}</div>
+      </div>
+    <div className="modal-action flex justify-between">
+
+      
+
+      <button className='btn btn-info w-4/5 hover:btn-secondary'>Add To Cart</button>
+      <label htmlFor="dynamicModal" className="btn">Back</label>
     </div>
   </div>
 </div>
