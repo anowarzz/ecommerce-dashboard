@@ -19,7 +19,7 @@ const closeModal = () => {
     setDeleteProduct(null)
 }
 
-
+// Deleting a product from user cart
 const handleDeleteProductFromCart = (product) => {
 
 const id = product._id ;
@@ -32,7 +32,9 @@ fetch(`https://ecommerce-dashboard-server.vercel.app/cartProducts/${id}`, {
 })
 .then((data) => {
   console.log(data);
-  if (data.deletedCount > 0){
+  refetch();
+  if (data.ok){
+    refetch();
     console.log("deleted");
     swal({
         title: "Yaaa !",
@@ -40,7 +42,7 @@ fetch(`https://ecommerce-dashboard-server.vercel.app/cartProducts/${id}`, {
         icon: "success",
         button: "Go Back",
       });
-    
+
   } 
  
 })

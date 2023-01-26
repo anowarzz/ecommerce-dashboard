@@ -15,7 +15,7 @@ const [productInModal, setProductInModal] = useState(null)
     return (
         <div className='mt-8'>
           
-
+          <h3 className="text-center text-2xl md:text-4xl my-4">Manage All Products</h3>
           <div className="overflow-x-auto w-full">
 
           {loading && <LoadingSpinner />

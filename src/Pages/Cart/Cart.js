@@ -1,4 +1,5 @@
 
+import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 import ProductCart from "../../components/ProductCart/ProductCart";
@@ -8,14 +9,38 @@ import useFetch from "../../Hooks/useFetch";
 const Cart = () => {
   const { user } = useContext(AuthContext);
 
-  const [products, setProduct] = useState([]);
+//   const [products, setProduct] = useState([]);
 
 
-  const { data: cartProducts, loading, refetch } = useFetch(
-    `https://ecommerce-dashboard-server.vercel.app/myCart/${user?.email}`
-  );
+//   const { data: cartProducts, loading, refetch } = useFetch(
+//     `https://ecommerce-dashboard-server.vercel.app/myCart/${user?.email}`
+//   );
 
-  console.log(cartProducts);
+//   console.log(cartProducts);
+
+
+  const {
+    data: cartProducts,
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["products"],
+    queryFn: async () => {
+      try {
+        const res = await fetch(
+          `https://ecommerce-dashboard-server.vercel.app/myCart/${user?.email}`,
+
+        );
+        const data = await res.json();
+        return data;
+      } catch (error) {}
+    },
+  });
+
+
+
+
+
 
   return (
     <div className="w-11/12 mx-auto">
@@ -23,7 +48,7 @@ const Cart = () => {
         Total {cartProducts?.length} Products In Your Cart
       </h3>
 
-      {loading && <LoadingSpinner />}
+      { isLoading && <LoadingSpinner />}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {cartProducts?.map((product) => (
           <ProductCart key={product?._id} product={product} refetch= {refetch}/>

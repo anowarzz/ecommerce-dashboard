@@ -14,7 +14,12 @@ const AllCustomers = () => {
   const [customerInModal, setCustomerInModal] = useState(null);
 
   return (
-    <div>
+
+<div>
+
+
+    <h3 className="text-center text-2xl md:text-4xl my-4">Manage All Customers</h3>
+
       {loading && <LoadingSpinner />}
 
       <div className="overflow-x-auto mt-8">
