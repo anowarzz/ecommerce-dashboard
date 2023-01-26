@@ -1,66 +1,44 @@
-import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
-import React, { useContext, useDebugValue, useEffect, useState } from 'react';
-import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner';
-import { AuthContext } from '../../contexts/AuthProvider';
-import useFetch from '../../Hooks/useFetch';
+
+import React, { useContext, useState } from "react";
+import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
+import ProductCart from "../../components/ProductCart/ProductCart";
+import { AuthContext } from "../../contexts/AuthProvider";
+import useFetch from "../../Hooks/useFetch";
 
 const Cart = () => {
+  const { user } = useContext(AuthContext);
 
-const {user} = useContext(AuthContext);
-
-const [products, setProduct] = useState([])
-
+  const [products, setProduct] = useState([]);
 
 
-// const url = 'https://ecommerce-dashboard-server.vercel.app/cart}'
-// const url = `https://ecommerce-dashboard-server.vercel.app/myCart?email=${user?.email}`
+  const { data: cartProducts, loading, refetch } = useFetch(
+    `https://ecommerce-dashboard-server.vercel.app/myCart/${user?.email}`
+  );
 
-const {data:cartProducts, loading} = useFetch(`https://ecommerce-dashboard-server.vercel.app/myCart?email=${user?.email}`)
+  console.log(cartProducts);
 
-console.log(cartProducts);
+  return (
+    <div className="w-11/12 mx-auto">
+      <h3 className="text-center text-2xl md:text-4xl my-8">
+        Total {cartProducts?.length} Products In Your Cart
+      </h3>
 
+      {loading && <LoadingSpinner />}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {cartProducts?.map((product) => (
+          <ProductCart key={product?._id} product={product} refetch= {refetch}/>
+        ))}
+      </div>
 
-// const {
-//     data: allProducts = [],
-//     isLoading,
-//     refetch,
-//   } = useQuery({
-//     queryKey: ["cart"],
-//     queryFn: async () => {
-//       try {
-//         const res = await fetch(url);
-//         const data = await res.json();
-//         return data;
-//       } 
-//       catch (error) {}
-//     },
-//   });
-
-// useEffect( () => {
-
-//     axios.get(url)
-//     .then(response => {
-//         setProduct(response.data)
-//     })
-// }, [])
-
-
-if(loading){
-    <LoadingSpinner />
-}
-
-
-    return (
-        <div>
-{
-    loading && <LoadingSpinner />
-}
-           
-            {/* <h3>This is the cart view of {allProducts?.length} Product</h3> */}
-            <h3>This is the cart view of {cartProducts?.length} Product</h3>
+      {cartProducts?.length > 0 && (
+        <div className="text-center my-8">
+          <button className="btn bg-blue-500 border-none w-4/6 text-center">
+            Check Out
+          </button>
         </div>
-    );
+      )}
+    </div>
+  );
 };
 
 export default Cart;

@@ -1,15 +1,9 @@
-import React, { useContext, useState } from 'react';
-import { ScaleLoader } from 'react-spinners';
-import swal from 'sweetalert';
-import { AuthContext } from '../../contexts/AuthProvider';
-import useAdmin from '../../Hooks/useAdmin';
-import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
+import React from 'react';
+
+
+
 
 const DynamicProductModal = ({product, setModalProduct}) => {
-
-
-
-
 
 
     return (

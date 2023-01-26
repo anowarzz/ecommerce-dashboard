@@ -8,8 +8,6 @@ import Login from '../Pages/Login/Login' ;
 import Register from '../Pages/Register/Register' ;
 import AllProducts from "../Pages/Dashboard/AllProducts.js/AllProducts";
 import Cart from "../Pages/Cart/Cart";
-import DynamicProductModal from "../components/DynamicProductModal/DynamicProductModal";
-import ProductDetails from "../Pages/Home/ProductList/ProductDetails/ProductDetails";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
 import AddCustomer from "../Pages/Dashboard/AddCustomer/AddCustomer";
@@ -37,11 +35,7 @@ const router = createBrowserRouter([
                path: '/cart',
                element: <Cart />
             },
-            {
-                path: '/products/:id',
-                element: <ProductDetails />,
-                loader: ({params}) => fetch(`https://ecommerce-dashboard-server.vercel.app/products/${params.id}`)
-            }
+          
     
         ]
     },
