@@ -5,28 +5,24 @@ import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-toastify";
 import useAdmin from "../../Hooks/useAdmin";
 
-
-
-
-
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-const [isAdmin] = useAdmin(user?.email) 
+  const [isAdmin] = useAdmin(user?.email);
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
         toast.success("Lout Successful", {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -37,36 +33,44 @@ const [isAdmin] = useAdmin(user?.email)
         <NavLink
           to="/"
           className={({ isActive }) =>
-          isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-        }
+            isActive
+              ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+              : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+          }
         >
           Home
         </NavLink>
       </li>
- 
 
       {user?.uid ? (
         <>
           <li>
-            <NavLink
-              to="/cart"
-              className={({ isActive }) =>
-              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            }
-            >
-             My Cart
-            </NavLink>
-        {
-          isAdmin &&     <NavLink
-          to="/dashboard"
-          className={({ isActive }) =>
-          isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+       {
+        !isAdmin &&      <NavLink
+        to="/cart"
+        className={({ isActive }) =>
+          isActive
+            ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+            : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
         }
-        >
-          Dashboard
-        </NavLink>
+      >
+        My Cart
+      </NavLink>
         }
-     
+
+            {isAdmin && (
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                    : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                }
+              >
+                Dashboard
+              </NavLink>
+            )}
+            
             <button
               onClick={handleLogOut}
               className="btn-sm mt-2 items-center text-black py-0 bg-myYellow ml-2 hover:bg-info"
@@ -81,8 +85,10 @@ const [isAdmin] = useAdmin(user?.email)
             <NavLink
               to="/login"
               className={({ isActive }) =>
-              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            }
+                isActive
+                  ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                  : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+              }
             >
               Login
             </NavLink>
@@ -91,8 +97,10 @@ const [isAdmin] = useAdmin(user?.email)
             <NavLink
               to="/register"
               className={({ isActive }) =>
-              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            }
+                isActive
+                  ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                  : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+              }
             >
               Register
             </NavLink>
@@ -106,7 +114,10 @@ const [isAdmin] = useAdmin(user?.email)
     <div className="navbar  py-6 px-4 bg-gray-900 flex justify-between dark:text-white">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn bg-gray-400 hover:bg-gray-500 lg:hidden">
+          <label
+            tabIndex={0}
+            className="btn bg-gray-400 hover:bg-gray-500 lg:hidden"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -132,8 +143,8 @@ const [isAdmin] = useAdmin(user?.email)
         <Link
           to="/"
           className="btn btn-ghost hover:bg-transparent  normal-case text-xl md:text-2xl"
-        > 
-        {/* <img src={logo} className="w-12 md:w-16" alt="" /> */}
+        >
+          {/* <img src={logo} className="w-12 md:w-16" alt="" /> */}
           <p className="mx-1 pl-3 md:mx-3 text-blue-400">
             <span className="hover:text-blue-500 text-myPink">E</span>
             <span className="hover:text-blue-500  text-myPink">c</span>
@@ -143,7 +154,8 @@ const [isAdmin] = useAdmin(user?.email)
             <span className="hover:text-blue-500  text-myPink">e</span>
             <span className="hover:text-blue-500  text-myPink">r</span>
             <span className="hover:text-blue-500  text-myPink">c</span>
-            <span className="hover:text-blue-500  text-myPink">e</span> <span className="hover:text-myPink ">D</span>
+            <span className="hover:text-blue-500  text-myPink">e</span>{" "}
+            <span className="hover:text-myPink ">D</span>
             <span className="hover:text-myPink">a</span>
             <span className="hover:text-myPink">s</span>
             <span className="hover:text-myPink">h</span>

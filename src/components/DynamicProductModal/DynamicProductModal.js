@@ -2,12 +2,13 @@ import React, { useContext, useState } from 'react';
 import { ScaleLoader } from 'react-spinners';
 import swal from 'sweetalert';
 import { AuthContext } from '../../contexts/AuthProvider';
+import useAdmin from '../../Hooks/useAdmin';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const DynamicProductModal = ({product, setModalProduct}) => {
 
 const {user} = useContext(AuthContext)
-
+const [isAdmin] = useAdmin(user?.email)
 const [loading, setLoading] = useState(false)
 
 const handleAddToCart = () => {
@@ -94,7 +95,12 @@ if(!data.acknowledged){
     <div className="modal-action flex justify-between">
 
       
-  { user?.uid ?       <button className='btn btn-md  btn-info w-4/5 hover:btn-secondary'
+  { 
+    isAdmin ?  <button className='btn btn-md  btn-info w-4/5 hover:btn-secondary' disabled
+    onClick={handleAddToCart}
+    >Sorry admin , you can't buy</button> :
+  
+  user?.uid ?    <button className='btn btn-md  btn-info w-4/5 hover:btn-secondary'
       onClick={handleAddToCart}
       >Add To Cart</button> :      
        <button className='btn bg-gray-200  w-4/5 hover:btn-secondary font-bold' disabled

@@ -13,12 +13,12 @@ const ProductCard = ({product, refetch, setModalProduct}) => {
     <h2 className="card-title h-16">
   {product?.title}
     </h2>
-    {/* <p>If a dog chews shoes whose shoes does he choose?</p> */}
+
     <div className="card-actions justify-end pt-3">
       <div className="badge badge-warning text-lg">${product?.price}</div> 
       <div className="badge badge-outline">⭐{product?.rating?.rate}</div>
     </div>
-    {/* to={`/products/${product._id}`} */}
+  
 
         <label className='btn btn-md btn-success hover:btn-secondary mt-2' htmlFor="dynamicModal" onClick={() => setModalProduct(product)}>Add to Cart</label>
 
