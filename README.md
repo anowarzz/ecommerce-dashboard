@@ -47,5 +47,5 @@
 
 
 ## Database
-* Toast -> [React Toastify](https://www.mongodb.com/)
+* MongoDB -> [MongoDB](https://www.mongodb.com/)
 
