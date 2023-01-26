@@ -196,7 +196,7 @@ const AddProduct = () => {
 
           <div className="flex justify-center mt-10">
             <button type="submit" className="btn btn-success w-4/6">
-              Add Customer
+              Add Product
             </button>
           </div>
         </form>
