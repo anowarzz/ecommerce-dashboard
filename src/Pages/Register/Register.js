@@ -25,7 +25,7 @@ const [error, setError] = useState("");
 const navigate = useNavigate();
 
 
-
+// Creating a user wih email and password
 const handleCreateUser = (event) => {
 
     event.preventDefault();
@@ -66,7 +66,7 @@ const handleCreateUser = (event) => {
         progress: undefined,
         theme: "colored",
       });
-      
+      // updating user info
       handleUpdateUserProfile(name);
       setLoading(false);
     })
@@ -78,7 +78,7 @@ const handleCreateUser = (event) => {
    })
         
 
-
+// function to update user info
     const handleUpdateUserProfile = (name) => {
       const profile = {displayName: name};
 

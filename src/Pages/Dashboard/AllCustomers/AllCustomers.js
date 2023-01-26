@@ -4,8 +4,10 @@ import LoadingSpinner from "../../../components/LoadingSpinner/LoadingSpinner";
 import useFetch from "../../../Hooks/useFetch";
 
 const AllCustomers = () => {
-  // Loading all customer list from the database
 
+
+  
+  // Loading all customer list from the database
   const { data: allCustomers, loading } = useFetch(
     "https://ecommerce-dashboard-server.vercel.app/customers"
   );

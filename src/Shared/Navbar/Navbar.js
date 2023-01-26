@@ -10,8 +10,6 @@ const Navbar = () => {
 
   const [isAdmin] = useAdmin(user?.email);
 
-
-
   // Log out a user from the web app
   const handleLogOut = () => {
     logOut()
@@ -48,18 +46,18 @@ const Navbar = () => {
       {user?.uid ? (
         <>
           <li>
-       {
-        !isAdmin &&      <NavLink
-        to="/cart"
-        className={({ isActive }) =>
-          isActive
-            ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-        }
-      >
-        My Cart
-      </NavLink>
-        }
+            {!isAdmin && (
+              <NavLink
+                to="/cart"
+                className={({ isActive }) =>
+                  isActive
+                    ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                    : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                }
+              >
+                My Cart
+              </NavLink>
+            )}
 
             {isAdmin && (
               <NavLink
@@ -73,7 +71,7 @@ const Navbar = () => {
                 Dashboard
               </NavLink>
             )}
-            
+
             <button
               onClick={handleLogOut}
               className="btn-sm mt-2 items-center text-black py-0 bg-myYellow ml-2 hover:bg-info"

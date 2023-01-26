@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useRouteError } from "react-router-dom";
-import errorImg from '../../assets/404Page.jpg'
+import errorImg from "../../assets/404Page.jpg";
 
 const ErrorPage = () => {
   const error = useRouteError();
@@ -10,7 +10,7 @@ const ErrorPage = () => {
   return (
     <section className="flex items-center h-screen  text-gray-900">
       <div className="container flex flex-col items-center justify-center px-5 mx-auto my-8">
-      <img src={errorImg} className="w-72" alt="" />
+        <img src={errorImg} className="w-72" alt="" />
         <div className="max-w-md text-center mt-4">
           <h2 className="mb-2 font-extrabold text-4xl">
             <span className="sr-only">Error</span> {error.status}

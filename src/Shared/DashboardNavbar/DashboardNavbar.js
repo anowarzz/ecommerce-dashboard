@@ -3,28 +3,22 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { toast } from "react-toastify";
 
-
-
-
-
 const DashboardNavbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
-
 
   const handleLogOut = () => {
     logOut()
       .then(() => {
         toast.success("Lout Successful", {
-            position: "top-center",
-            autoClose: 1000,
-            hideProgressBar: true,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
-          });
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
       })
       .catch((err) => console.log(err));
   };
@@ -35,13 +29,14 @@ const DashboardNavbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-          isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-        }
+            isActive
+              ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+              : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+          }
         >
           Home
         </NavLink>
       </li>
- 
 
       {user?.uid ? (
         <>
@@ -49,12 +44,14 @@ const DashboardNavbar = () => {
             <NavLink
               to="/dashboard"
               className={({ isActive }) =>
-              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            }
+                isActive
+                  ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                  : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+              }
             >
               Dashboard
             </NavLink>
-     
+
             <button
               onClick={handleLogOut}
               className="btn-sm mt-2 items-center text-black py-0 bg-myYellow ml-2 hover:bg-info"
@@ -69,8 +66,10 @@ const DashboardNavbar = () => {
             <NavLink
               to="/login"
               className={({ isActive }) =>
-              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            }
+                isActive
+                  ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                  : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+              }
             >
               Login
             </NavLink>
@@ -79,8 +78,10 @@ const DashboardNavbar = () => {
             <NavLink
               to="/register"
               className={({ isActive }) =>
-              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            }
+                isActive
+                  ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+                  : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+              }
             >
               Register
             </NavLink>
@@ -120,8 +121,7 @@ const DashboardNavbar = () => {
         <Link
           to="/"
           className="btn btn-ghost hover:bg-transparent  normal-case text-xl md:text-2xl"
-        > 
-  
+        >
           <p className="pl-3 text-sm md:text-lg  md:mx-3 text-blue-400">
             <span className="hover:text-blue-500 text-myPink">E</span>
             <span className="hover:text-blue-500  text-myPink">c</span>
@@ -131,7 +131,8 @@ const DashboardNavbar = () => {
             <span className="hover:text-blue-500  text-myPink">e</span>
             <span className="hover:text-blue-500  text-myPink">r</span>
             <span className="hover:text-blue-500  text-myPink">c</span>
-            <span className="hover:text-blue-500  text-myPink">e</span> <span className="hover:text-myPink ">D</span>
+            <span className="hover:text-blue-500  text-myPink">e</span>{" "}
+            <span className="hover:text-myPink ">D</span>
             <span className="hover:text-myPink">a</span>
             <span className="hover:text-myPink">s</span>
             <span className="hover:text-myPink">h</span>

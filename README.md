@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# E-commerce Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## E-commerce Products and Cart for Users and Dashboard for admin
 
-## Available Scripts
 
-In the project directory, you can run:
+### Website Features And Functionalities
+* Users Can LogIn, Register Using Email Or Google Account.
+* User can add any product to cart. only after logging in .
+* User can view his/her added product in My cart and delete any product form cart
+* Admin can view all Products and customers in Dashboard
+* Admin can Add new product and new customer to the database
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Live Site Link
+* [E-commerce Dashboard](https://ecommerce-dashboard-7efbb.web.app/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Server Code Link
+* [Server Code](https://github.com/anowarzz/ecommerce-dashboard-server)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Frameworks And Libraries used in this project
 
-### `npm run build`
+### React
+* Documentation -> [Link](https://reactjs.org/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Firebase Authentication
+* Documentation -> [Link](https://firebase.google.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Axios
+* Documentation -> [Link](https://axios-http.com/docs/intro)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### React Query / TanStack Query
+* Documentation -> [Link](https://react-query-v3.tanstack.com/overview)
 
-### `npm run eject`
+### React Router Dom 
+* Documentation -> [Link](https://reactrouter.com/en/main/start/overview)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Css  Used 
+* Tailwind -> [Tailwind](https://tailwindcss.com/)
+* Components ->  [Daisy UI](https://daisyui.com/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Other Resources
+* Toast -> [React Toastify](https://www.npmjs.com/package/react-toastify)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Database
+* Toast -> [React Toastify](https://www.mongodb.com/)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
