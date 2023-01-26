@@ -2,7 +2,7 @@ import React from 'react';
 
 const CustomerDetailsModal = ({customer}) => {
     
-      const {name, email, phone, address} = customer     
+      const {name, email, phone, address, addedOn} = customer     
       
       
 
@@ -25,6 +25,7 @@ const CustomerDetailsModal = ({customer}) => {
 <li className="text-blue-400"> Phone: <span className='pl-4  text-yellow-500'>{phone}</span>  </li>
 <li className="text-blue-400"> Address: <span className='pl-4  text-yellow-500'>{address?.city}</span>  </li>
 <li className="text-blue-400"> Zip: <span className='pl-4  text-yellow-500'>{address?.zipcode}</span>  </li>
+<li className="text-blue-400"> Added On: <span className='pl-4  text-yellow-500'>{addedOn}</span>  </li>
 </ul>
 
 

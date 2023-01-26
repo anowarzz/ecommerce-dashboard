@@ -11,6 +11,8 @@ import Cart from "../Pages/Cart/Cart";
 import DynamicProductModal from "../components/DynamicProductModal/DynamicProductModal";
 import ProductDetails from "../Pages/Home/ProductList/ProductDetails/ProductDetails";
 import AdminRoute from "./AdminRoute/AdminRoute";
+import AddProduct from "../Pages/Dashboard/AddProduct/AddProduct";
+import AddCustomer from "../Pages/Dashboard/AddCustomer/AddCustomer";
 
 const router = createBrowserRouter([
 
@@ -54,6 +56,14 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/products',
                 element: <AllProducts />
+            },
+            {
+                path: '/dashboard/addProduct',
+                element: <AddProduct />
+            },
+            {
+                path: '/dashboard/addCustomer',
+                element: <AddCustomer />
             }
         ]
     },

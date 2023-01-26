@@ -10,6 +10,9 @@ const Navbar = () => {
 
   const [isAdmin] = useAdmin(user?.email);
 
+
+
+  // Log out a user from the web app
   const handleLogOut = () => {
     logOut()
       .then(() => {
