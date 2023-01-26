@@ -11,9 +11,9 @@ const DashboardLayout = () => {
           <div className="drawer-content">
             
   
-      <h3 className="mt-2 text-2xl text-center"><span className="badge badge-info">Welcome </span></h3>
+      <h3 className="mt-2 text-2xl lg:text-3xl text-center"><span className="badge badge-info">Welcome Admin</span></h3>
   
-        <p className="text-center text-sm md:text-base text-blue-600 font-semibold">Select option from  Menu bar</p>
+        <p className="text-center text-sm  text-blue-600 font-semibold mb-4">Browse options from  Menu bar</p>
   <div>
   <Outlet />
   </div>
@@ -22,7 +22,7 @@ const DashboardLayout = () => {
 
           <div className="drawer-side">
             <label htmlFor="dashboardDrawer" className="drawer-overlay"></label>
-            <ul className="menu p-4 w-80 bg-gray-300 text-base-content pt-12">
+            <ul className="menu p-4 w-80 bg-gray-300 text-base-content pt-24">
         
        
               <li className="border-gray-100 bg-gray-800 shadow-xl text-gray-50 mb-1 hover:bg-sky-500">
