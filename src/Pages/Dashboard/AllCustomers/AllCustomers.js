@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CustomerDetailsModal from '../../../components/CustomerDetailsModal/CustomerDetailsModal';
+import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import useFetch from '../../../Hooks/useFetch';
 
 const AllCustomers = () => {
@@ -15,8 +16,13 @@ console.log(allCustomers);
 const  [customerInModal, setCustomerInModal] = useState(null)
 
 
+
     return (
  <div>
+
+    {loading && <LoadingSpinner />
+    
+    }
 
 <div className="overflow-x-auto mt-8">
 
