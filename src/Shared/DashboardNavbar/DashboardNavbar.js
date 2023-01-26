@@ -122,7 +122,7 @@ const DashboardNavbar = () => {
           className="btn btn-ghost hover:bg-transparent  normal-case text-xl md:text-2xl"
         > 
   
-          <p className="mx-1  pl-3 md:mx-3 text-blue-400">
+          <p className="pl-3 text-sm md:text-lg  md:mx-3 text-blue-400">
             <span className="hover:text-blue-500 text-myPink">E</span>
             <span className="hover:text-blue-500  text-myPink">c</span>
             <span className="hover:text-blue-500  text-myPink">o</span>

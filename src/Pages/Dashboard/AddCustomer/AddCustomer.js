@@ -87,26 +87,26 @@ console.log(customer);
     <form onSubmit={handleAddCustomer}>
         <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
             <div>
-                <label className="text-gray-700 dark:text-gray-200" htmlFor="name">Name</label>
+                <label className="text-gray-700 dark:text-gray-200" htmlFor="name">Customer Name</label>
                 <input id="name" name='name' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"  required/>
             </div>
 
             <div>
-                <label className="text-gray-700 dark:text-gray-200" htmlFor="email">Email</label>
+                <label className="text-gray-700 dark:text-gray-200" htmlFor="email">Customer Email</label>
                 <input id="email" name='email' type="email" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" autoComplete='off' required/>
             </div>
 
             <div>
-                <label className="text-gray-700 dark:text-gray-200" htmlFor="phone">Phone</label>
+                <label className="text-gray-700 dark:text-gray-200" htmlFor="phone">Customer Phone</label>
                 <input id="phone" type="phone" name='phone' className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required/>
             </div>
 
             <div>
-                <label className="text-gray-700 dark:text-gray-200" htmlFor="address">Address</label>
+                <label className="text-gray-700 dark:text-gray-200" htmlFor="address">Customer Address</label>
                 <input id="address" name='address' type="text" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required/>
             </div>
             <div>
-                <label className="text-gray-700 dark:text-gray-200" htmlFor="zip">Zip</label>
+                <label className="text-gray-700 dark:text-gray-200" htmlFor="zip">Zip Code</label>
                 <input id="zip" name='zip' type="number" className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring" required/>
             </div>
         </div>
