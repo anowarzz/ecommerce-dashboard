@@ -24,7 +24,7 @@ const navigate = useNavigate();
 
 
 
-//  User login
+//  Handle User login
 
 const handleLogIn = (event) => {
 event.preventDefault();
@@ -96,14 +96,34 @@ googleLogIn(googleProvider)
 
 
     return (
-        <div className='flex items-center justify-center h-screen  bg-gray-800'>
-        <div className="mx-auto bg-gray-800 pb-20">
+        <div className='flex flex-col md:flex-row items-center justify-around  bg-gray-800 py-10'>
+
+<div className="mx-auto mb-4 md:mb-0 w-2/6 text-center">
+  <h2 className='text-lg text-white mb-4 md:text-2xl'>Easy Login </h2>
+
+<div>
+  <p className='text-blue-500'>Login As Admin</p>
+  <p className='text-white'>Email: <span className='text-myYellow'>admin@gmail.com</span></p>
+  <p className='text-white'>Password: <span className='text-myYellow'>admin123</span></p>
+
+</div>
+
+<div className='mt-4'>
+<p className='text-blue-500'>Login As User</p>
+  <p className='text-white'>Email: <span className='text-myYellow'>test@user.com</span> </p>
+  <p className='text-white'>Password: <span className='text-myYellow'>Test123</span></p>
+</div>
+</div>
+
 
 {loading && (
-    <div className="z-20 absolute top-40 left-[50%] ">
+    <div className="z-10 absolute top-40 left-[50%] ">
       <ScaleLoader color="yellow" size={100} className="text-center" />
     </div>
   )}
+
+        <div className="mx-auto bg-gray-800 w-10/12 md:w-4/6">
+
 
 
     <div className="w-full max-w-md  mx-auto bg-white shadow-md dark:bg-gray-800">
@@ -206,8 +226,9 @@ isActive ? "font-medium text-xl md:text-2xl tracking-wide transition-colors dura
 
 
     </div>
+</div>
   </div>
-    </div>
+
     );
 };
 
