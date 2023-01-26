@@ -45,7 +45,7 @@ console.log(customer);
     if(response?.data?.acknowledged){
         setLoading(false)
     
-        toast.success("Customer Added Successful", {
+        toast.success("Customer Added Successfully", {
             position: "top-center",
             autoClose: 1000,
             hideProgressBar: true,
