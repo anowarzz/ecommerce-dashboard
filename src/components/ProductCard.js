@@ -4,12 +4,6 @@ import { Link } from 'react-router-dom';
 
 const ProductCard = ({product, refetch, setModalProduct}) => {
 
-console.log(product);
-
-
-
-
-
 
     return (
         <div className='mx-auto h-max'>

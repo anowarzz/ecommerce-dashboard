@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 import { AuthContext } from '../../contexts/AuthProvider';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
-const DynamicModal = ({product, setModalProduct}) => {
+const DynamicProductModal = ({product, setModalProduct}) => {
 
 const {user} = useContext(AuthContext)
 
@@ -35,11 +35,24 @@ fetch('https://ecommerce-dashboard-server.vercel.app/cartProducts', {
 console.log(data);
 setLoading(false)
 if(data.acknowledged)
-swal("Yaa!", "Product Added to Cart!", "success");
+
+swal({
+  title: "Yaaa !",
+  text: 'Product Added to Your Cart',
+  icon: "success",
+  button: "Go Back",
+});
+
 setModalProduct(null)
 
 if(!data.acknowledged){
-  swal("Opss", `${product?.title} Is Already In Your Cart`, "warning");
+  swal({
+    title: "Opss",
+    text: `${product?.title} Is Already In Your Cart`,
+    icon: "warning",
+    button: "Go Back",
+  });
+
   setModalProduct(null)
 }
 
@@ -52,18 +65,17 @@ if(!data.acknowledged){
 
 
     return (
-        <div className='border'>
+        <div className='relative'>
 
 
 
 <input type="checkbox" id="dynamicModal" className="modal-toggle" />
 
 <div className="modal modal-bottom sm:modal-middle border">
-  <div className="modal-box ">
+  <div className="modal-box">
 
 {
-  loading && <div className='mt-8'> 
-<p className='text-center'>Loading...</p>
+  loading && <div className='absolute left-[50%] top-[50%]'> 
 <ScaleLoader color="blue" size={100} className="text-center"/>
 
   </div>
@@ -102,4 +114,4 @@ if(!data.acknowledged){
     );
 };
 
-export default DynamicModal;
+export default DynamicProductModal;

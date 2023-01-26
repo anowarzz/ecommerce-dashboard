@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import useFetch from '../../../Hooks/useFetch';
 import ProductCard from '../../../components/ProductCard';
-import DynamicModal from '../../../components/DynamicModal/DynamicModal';
+import DynamicProductModal from '../../../components/DynamicProductModal/DynamicProductModal';
 
 const ProductList = () => {
 
@@ -30,7 +30,7 @@ if(loading){
 
 
     {
-  modalProduct && <DynamicModal product = {modalProduct} setModalProduct = {setModalProduct} />
+  modalProduct && <DynamicProductModal product = {modalProduct} setModalProduct = {setModalProduct} />
 }
         </div>
     );

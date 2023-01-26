@@ -8,8 +8,9 @@ import Login from '../Pages/Login/Login' ;
 import Register from '../Pages/Register/Register' ;
 import AllProducts from "../Pages/Dashboard/AllProducts.js/AllProducts";
 import Cart from "../Pages/Cart/Cart";
-import DynamicModal from "../components/DynamicModal/DynamicModal";
+import DynamicProductModal from "../components/DynamicProductModal/DynamicProductModal";
 import ProductDetails from "../Pages/Home/ProductList/ProductDetails/ProductDetails";
+import AdminRoute from "./AdminRoute/AdminRoute";
 
 const router = createBrowserRouter([
 
@@ -44,7 +45,7 @@ const router = createBrowserRouter([
     },
     {
      path:'/dashboard',
-     element: <DashboardLayout />,
+     element: <AdminRoute> <DashboardLayout /> </AdminRoute>,
      children: [
          {
              path: '/dashboard/customers',

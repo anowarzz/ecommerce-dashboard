@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../contexts/AuthProvider";
 // import logo from '../../assets/dashbaord.jpg'
 import { toast } from "react-toastify";
+import useAdmin from "../../Hooks/useAdmin";
 
 
 
@@ -11,7 +12,7 @@ import { toast } from "react-toastify";
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
 
-
+const [isAdmin] = useAdmin(user?.email) 
 
   const handleLogOut = () => {
     logOut()
@@ -55,14 +56,16 @@ const Navbar = () => {
             >
              My Cart
             </NavLink>
-            <NavLink
-              to="/dashboard"
-              className={({ isActive }) =>
-              isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
-            }
-            >
-              Dashboard
-            </NavLink>
+        {
+          isAdmin &&     <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+          isActive ? "font-medium tracking-wide transition-colors duration-200 text-sky-400  border-b-transparent ease-linear transform border-b-2 hover:border-pink-600" : "font-medium tracking-wide text-white  transition-colors duration-200 hover:text-sky-400 border-b-transparent ease-linear transform border-b-2 hover:border-pink-600"
+        }
+        >
+          Dashboard
+        </NavLink>
+        }
      
             <button
               onClick={handleLogOut}
