@@ -25,7 +25,7 @@ const [isAdmin] = useAdmin(user?.email)
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-            theme: "colored",
+            theme: "light",
           });
       })
       .catch((err) => console.log(err));
