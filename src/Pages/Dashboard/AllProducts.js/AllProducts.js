@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LoadingSpinner from '../../../components/LoadingSpinner/LoadingSpinner';
 import ProductDetailsModal from '../../../components/ProductDetailsModal/ProductDetailsModal';
 import useFetch from '../../../Hooks/useFetch';
-import ProductList from '../../Home/ProductList/ProductList';
+
 
 const AllProducts = () => {
 
@@ -58,7 +58,7 @@ return <tr key={product._id}>
   <p className='font-bold'>${product?.price}</p>
    </td>
    <th>
-     <button  onClick={() => setProductInModal(product)} className="btn btn-info btn-sm">Details</button>
+     <label  htmlFor="productDetailsModal" onClick={() => setProductInModal(product)} className="btn btn-info btn-sm">Details</label>
    </th>
  </tr>
 
