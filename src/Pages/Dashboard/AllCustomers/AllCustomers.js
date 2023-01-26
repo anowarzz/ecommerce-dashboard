@@ -34,7 +34,7 @@ const  [customerInModal, setCustomerInModal] = useState(null)
 
 {
 allCustomers?.map((customer, i) => {
-return  <tr>
+return  <tr key={customer._id}>
 <th>{i+1}</th>
 <td>{customer?.name}</td>
 <td>{customer?.email}</td>
